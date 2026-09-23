@@ -1,3 +1,4 @@
 data/**
 /sqlite/
+/duckdb/
 __pycache__/
