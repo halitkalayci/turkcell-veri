@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: Raw telco warehouse tables loaded from source feeds.
+    tables:
+      - name: subscribers
+        description: Raw subscriber snapshot records with potential duplicate MSISDNs and status variations.
+        columns:
+          - name: subscriber_id
+            description: Source subscriber record identifier.
+          - name: msisdn
+            description: Raw phone number, potentially containing formatting differences and duplicate records.
+          - name: plan_id
+            description: Plan identifier linked to the raw subscriber row.
+          - name: status
+            description: Source status value before normalization.
+          - name: activation_date
+            description: Date the subscriber record became active in the source system.
+          - name: city
+            description: Customer city from the raw snapshot.
+          - name: segment
+            description: Subscriber segment from the raw snapshot.

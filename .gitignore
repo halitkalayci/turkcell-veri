@@ -2,3 +2,5 @@ data/**
 /sqlite/
 /duckdb/
 __pycache__/
+dbt/logs/**
+dbt/target/**

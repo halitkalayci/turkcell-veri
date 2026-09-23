@@ -1,0 +1,28 @@
+{
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.parquet": "duckdb.dataFileViewer",
+        "*.csv": "duckdb.dataFileViewer",
+        "*.tsv": "duckdb.dataFileViewer",
+        "*.xlsx": "duckdb.dataFileViewer"
+    },
+    "duckdb.databases": [
+        {
+            "alias": "telco_dw",
+            "type": "file",
+            "path": "c:\\Users\\Halit\\Desktop\\Eğitimler\\turkcell-veri\\duckdb\\telco_dw.duckdb",
+            "attached": false
+        }
+    ],
+    "duckdb.defaultDatabase": "telco_dw",
+    "sqltools.connections": [
+        {
+            "name": "DuckDB",
+            "accessMode": "Read Only",
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "databaseFilePath": "C:\\Users\\Halit\\Desktop\\Eğitimler\\turkcell-veri\\duckdb\\telco_dw.duckdb"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

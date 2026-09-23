@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_subscribers
+    description: Staging model for subscriber snapshots. It normalizes MSISDN values to E.164 format, resolves duplicate raw records per phone number, and standardizes status values.
+    columns:
+      - name: subscriber_id
+        description: Raw source subscriber identifier retained for traceability.
+        tests:
+          - not_null
+      - name: msisdn
+        description: Normalized E.164 phone number in the format +90XXXXXXXXXX.
+        tests:
+          - not_null
+          - unique
+      - name: plan_id
+        description: Plan identifier associated with the latest valid subscriber snapshot.
+      - name: status
+        description: Normalized subscriber status. Valid values are ACTIVE and INACTIVE.
+        tests:
+          - not_null:
+              config:
+                where: "is_valid_status = true"
+          - accepted_values:
+              arguments:
+                values: ['ACTIVE', 'INACTIVE']
+              config:
+                where: "is_valid_status = true"
+      - name: is_valid_status
+        description: Indicates whether the raw status value can be normalized into a supported status bucket.
+        tests:
+          - not_null
+      - name: activation_date
+        description: Most recent activation date among duplicate raw records for the same normalized MSISDN.
+        tests:
+          - not_null
+      - name: city
+        description: City from the latest valid subscriber snapshot.
+      - name: segment
+        description: Segment from the latest valid subscriber snapshot.
