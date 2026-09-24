@@ -22,3 +22,24 @@ sources:
             description: Customer city from the raw snapshot.
           - name: segment
             description: Subscriber segment from the raw snapshot.
+      - name: cdr_events
+        description: Raw call detail records with duplicate event IDs and event type variations.
+        columns:
+          - name: event_id
+            description: Source event identifier, which may be duplicated by the source feed.
+          - name: msisdn
+            description: Raw phone number, potentially containing formatting differences.
+          - name: event_type
+            description: Source event type before normalization; expected values are voice, sms, and data.
+          - name: event_ts
+            description: UTC timestamp when the event occurred.
+          - name: duration_sec
+            description: Event duration in seconds.
+          - name: bytes
+            description: Bytes transferred by the event.
+          - name: cell_id
+            description: Cell identifier associated with the event.
+          - name: country_code
+            description: Country code associated with the event.
+          - name: ingested_at
+            description: UTC timestamp when the event was ingested into the warehouse.

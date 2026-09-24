@@ -38,3 +38,40 @@ models:
         description: City from the latest valid subscriber snapshot.
       - name: segment
         description: Segment from the latest valid subscriber snapshot.
+  - name: stg_cdr_events
+    description: Staging model for CDR events. It normalizes MSISDN and event types and retains the earliest ingested row for each event ID.
+    columns:
+      - name: event_id
+        description: Deduplicated source event identifier retained for traceability.
+        tests:
+          - not_null
+          - unique
+      - name: msisdn
+        description: Normalized E.164 phone number in the format +90XXXXXXXXXX.
+      - name: event_type
+        description: Normalized event type. Valid values are voice, sms, and data.
+        tests:
+          - not_null:
+              config:
+                where: "is_valid_event_type = true"
+          - accepted_values:
+              arguments:
+                values: ['voice', 'sms', 'data']
+              config:
+                where: "is_valid_event_type = true"
+      - name: is_valid_event_type
+        description: Indicates whether the raw event type is one of the supported event types.
+        tests:
+          - not_null
+      - name: event_ts
+        description: UTC timestamp when the event occurred.
+      - name: duration_sec
+        description: Event duration in seconds.
+      - name: bytes
+        description: Bytes transferred by the event.
+      - name: cell_id
+        description: Cell identifier associated with the event.
+      - name: country_code
+        description: Country code associated with the event.
+      - name: ingested_at
+        description: UTC timestamp when the event was ingested into the warehouse.
