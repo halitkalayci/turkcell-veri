@@ -2,7 +2,12 @@ version: 2
 
 models:
   - name: stg_subscribers
-    description: Staging model for subscriber snapshots. It normalizes MSISDN values to E.164 format, resolves duplicate raw records per phone number, and standardizes status values.
+    description: Staging model for subscriber snapshots. It normalizes MSISDN values to E.164 format, flags duplicate raw records per phone number, and standardizes status values.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - msisdn
+            - subscriber_id
     columns:
       - name: subscriber_id
         description: Raw source subscriber identifier retained for traceability.
@@ -12,18 +17,17 @@ models:
         description: Normalized E.164 phone number in the format +90XXXXXXXXXX.
         tests:
           - not_null
-          - unique
       - name: plan_id
-        description: Plan identifier associated with the latest valid subscriber snapshot.
+        description: Plan identifier associated with the subscriber snapshot.
       - name: status
-        description: Normalized subscriber status. Valid values are ACTIVE and INACTIVE.
+        description: Normalized subscriber status. Valid values are ACTIVE, SUSPENDED, and CHURNED.
         tests:
           - not_null:
               config:
                 where: "is_valid_status = true"
           - accepted_values:
               arguments:
-                values: ['ACTIVE', 'INACTIVE']
+                values: ['ACTIVE', 'SUSPENDED', 'CHURNED']
               config:
                 where: "is_valid_status = true"
       - name: is_valid_status
@@ -31,13 +35,17 @@ models:
         tests:
           - not_null
       - name: activation_date
-        description: Most recent activation date among duplicate raw records for the same normalized MSISDN.
+        description: Activation date of the raw subscriber record.
         tests:
           - not_null
       - name: city
-        description: City from the latest valid subscriber snapshot.
+        description: Customer city from the raw subscriber snapshot.
       - name: segment
-        description: Segment from the latest valid subscriber snapshot.
+        description: Subscriber segment from the raw subscriber snapshot.
+      - name: is_current_record
+        description: True when the row is the most recent record (highest activation_date, then highest subscriber_id) for the normalized MSISDN.
+        tests:
+          - not_null
   - name: stg_cdr_events
     description: Staging model for CDR events. It normalizes MSISDN and event types and retains the earliest ingested row for each event ID.
     columns:
@@ -76,18 +84,75 @@ models:
       - name: ingested_at
         description: UTC timestamp when the event was ingested into the warehouse.
   - name: stg_campaigns
-    description: Staging model for campaign definitions. It trims campaign identifiers and text fields and keeps the latest dated record for each campaign identifier.
+    description: Kampanya tanımları için staging modeli. Kampanya kimliklerini ve metin alanlarını kırpar, her kampanya kimliği için tarih sıralamasına göre tek kayıt bırakır.
     columns:
       - name: campaign_id
-        description: Deduplicated source campaign identifier retained for traceability.
+        description: İzlenebilirlik için korunan, tekilleştirilmiş kaynak kampanya kimliği.
         tests:
           - not_null
           - unique
       - name: name
-        description: Trimmed campaign display name.
+        description: Kırpılmış kampanya görünen adı.
       - name: start_date
-        description: Date on which the campaign starts.
+        description: Kampanyanın başladığı tarih.
       - name: end_date
-        description: Date on which the campaign ends.
+        description: Kampanyanın sona erdiği tarih.
       - name: target_segment
-        description: Trimmed customer segment targeted by the campaign.
+        description: Kırpılmış hedef müşteri segmenti.
+  - name: stg_recharges
+    description: Yükleme (top-up) kayıtları için staging modeli. MSISDN'i E.164 formatına normalize eder, yükleme kanalını büyük harfe çevirir ve recharge_id başına en güncel kaydı işaretler.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - recharge_id
+    columns:
+      - name: recharge_id
+        description: Kaynak yükleme kaydı kimliği.
+        tests:
+          - not_null
+      - name: msisdn
+        description: +90XXXXXXXXXX formatında normalize edilmiş E.164 telefon numarası.
+        tests:
+          - not_null
+      - name: amount_try
+        description: Yükleme tutarı (TRY).
+        tests:
+          - not_null
+      - name: channel
+        description: Büyük harfe normalize edilmiş yükleme kanalı.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['APP', 'WEB', 'DEALER', 'BANK', 'IVR']
+      - name: recharge_ts
+        description: Yüklemenin gerçekleştiği UTC zaman damgası.
+        tests:
+          - not_null
+      - name: is_current_record
+        description: recharge_id başına en güncel (recharge_ts'e göre) kaydı işaretler.
+        tests:
+          - not_null
+  - name: stg_plans
+    description: Tarife tanımları için staging modeli. plan_id başına en güncel kaydı işaretler.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - plan_id
+    columns:
+      - name: plan_id
+        description: Kaynak tarife kimliği.
+        tests:
+          - not_null
+      - name: plan_name
+        description: Kırpılmış tarife görünen adı.
+      - name: plan_family
+        description: Kırpılmış tarife ürün ailesi.
+      - name: monthly_fee
+        description: Aylık tarife ücreti (TRY).
+        tests:
+          - not_null
+      - name: is_current_record
+        description: plan_id başına en güncel kaydı işaretler.
+        tests:
+          - not_null

@@ -16,7 +16,7 @@ deduped as (
         *,
         row_number() over (
             partition by campaign_id
-            order by start_date desc, end_date desc, campaign_id desc
+            order by start_date desc, end_date desc, name desc, target_segment desc, campaign_id desc
         ) as rn
     from normalized
 )
@@ -29,14 +29,14 @@ select
 from deduped
 where rn = 1
 
--- Validation queries:
--- 1. Duplicate check before deduplication in the raw source:
+-- Doğrulama sorguları:
+-- 1. Tekilleştirme öncesi ham kaynakta tekrar kontrolü:
 -- select campaign_id, count(*) as row_count
 -- from raw.campaigns
 -- where campaign_id is not null
 -- group by campaign_id
 -- having count(*) > 1;
 --
--- 2. Final model uniqueness check by campaign ID:
+-- 2. Son modelde kampanya kimliği tekillik kontrolü:
 -- select count(*) as total_rows, count(distinct campaign_id) as distinct_campaign_id
 -- from silver.stg_campaigns;

@@ -8,19 +8,17 @@ normalized as (
         trim(msisdn) as msisdn_raw,
         case
             when msisdn is null or trim(msisdn) = '' then null
-            else '+' || right(regexp_replace(trim(msisdn), '\D', '', 'g'), 10)
+            else '+90' || right(regexp_replace(msisdn, '\D', '', 'g'), 10)
         end as msisdn,
         plan_id,
         case
             when status is null or trim(status) = '' then null
             when upper(trim(status)) in ('ACTIVE', 'AKTIF') then 'ACTIVE'
-            when upper(trim(status)) in ('SUSPENDED', 'INACTIVE', 'PASSIVE', 'CHURNED', 'CHURN', 'INACTIF') then 'INACTIVE'
-            else null
+            else upper(trim(status))
         end as status_normalized,
         case
             when status is null or trim(status) = '' then false
-            when upper(trim(status)) in ('ACTIVE', 'AKTIF', 'SUSPENDED', 'INACTIVE', 'PASSIVE', 'CHURNED', 'CHURN', 'INACTIF') then true
-            else false
+            else true
         end as is_valid_status,
         activation_date,
         city,
@@ -44,9 +42,9 @@ select
     is_valid_status,
     activation_date,
     city,
-    segment
+    segment,
+    (rn = 1) as is_current_record
 from deduped
-where rn = 1
 
 -- Validation queries:
 -- 1. Duplicate check before deduplication in the raw source:
@@ -56,6 +54,7 @@ where rn = 1
 -- group by msisdn
 -- having count(*) > 1;
 --
--- 2. Final model uniqueness check by normalized MSISDN:
--- select count(*) as total_rows, count(distinct msisdn) as distinct_msisdn
--- from silver.stg_subscribers;
+-- 2. Final model: güncel kayıt sayısı (msisdn, subscriber_id) ile distinct kombinasyon sayısı eşleşmeli:
+-- select count(*) as total_rows, count(distinct (msisdn, subscriber_id)) as distinct_combo
+-- from silver.stg_subscribers
+-- where is_current_record = true;

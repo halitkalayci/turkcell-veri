@@ -4,3 +4,7 @@ data/**
 __pycache__/
 dbt/logs/**
 dbt/target/**
+dbt/dbt_packages/**
+dbt/.user.yml
+dbt/*.duckdb
+dbt/*.duckdb.wal

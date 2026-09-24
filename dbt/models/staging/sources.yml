@@ -44,15 +44,39 @@ sources:
           - name: ingested_at
             description: UTC timestamp when the event was ingested into the warehouse.
       - name: campaigns
-        description: Raw campaign definitions with campaign identifiers, validity dates, and target segments.
+        description: Kampanya kimliklerini, geçerlilik tarihlerini ve hedef segmentleri içeren ham kampanya kayıtları.
         columns:
           - name: campaign_id
-            description: Source campaign identifier, which may be duplicated by the source feed.
+            description: Kaynak kampanya kimliği; kaynak akışında tekrarlanabilir.
           - name: name
-            description: Campaign display name from the source system.
+            description: Kaynak sistemdeki kampanya görünen adı.
           - name: start_date
-            description: Date on which the campaign starts.
+            description: Kampanyanın başladığı tarih.
           - name: end_date
-            description: Date on which the campaign ends.
+            description: Kampanyanın sona erdiği tarih.
           - name: target_segment
-            description: Customer segment targeted by the campaign.
+            description: Kampanyanın hedeflediği müşteri segmenti.
+      - name: recharges
+        description: Ham yükleme (top-up) kayıtları; msisdn formatı karışıktır.
+        columns:
+          - name: recharge_id
+            description: Kaynak yükleme kaydı kimliği.
+          - name: msisdn
+            description: Ham telefon numarası; format karışık olabilir.
+          - name: amount_try
+            description: Yükleme tutarı (TRY).
+          - name: channel
+            description: Yükleme kanalı (APP / WEB / DEALER / BANK / IVR).
+          - name: recharge_ts
+            description: Yüklemenin gerçekleştiği UTC zaman damgası.
+      - name: plans
+        description: Ham tarife (plan) tanımları.
+        columns:
+          - name: plan_id
+            description: Kaynak tarife kimliği.
+          - name: plan_name
+            description: Tarifenin görünen adı.
+          - name: plan_family
+            description: Tarifenin ait olduğu ürün ailesi.
+          - name: monthly_fee
+            description: Aylık tarife ücreti (TRY).

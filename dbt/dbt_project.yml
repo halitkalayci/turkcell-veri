@@ -15,3 +15,17 @@ target-path: target
 clean-targets:
   - target
   - dbt_packages
+
+vars:
+  lookback_days: 3
+
+models:
+  telco_dw:
+    staging:
+      +materialized: view
+      +schema: silver
+    intermediate:
+      +materialized: ephemeral
+    marts:
+      +materialized: table
+      +schema: gold
