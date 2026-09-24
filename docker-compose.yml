@@ -18,5 +18,75 @@ services:
       timeout: 5s
       retries: 20
 
+  airflow-postgres:
+    image: postgres:16-alpine
+    container_name: telco_airflow_pg
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - airflow_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow -d airflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  airflow-init:
+    build:
+      context: .
+      dockerfile: airflow/Dockerfile
+    image: telco-airflow:latest
+    container_name: telco_airflow_init
+    depends_on:
+      airflow-postgres:
+        condition: service_healthy
+    environment: &airflow-common-env
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__FERNET_KEY: ""
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "false"
+      AIRFLOW_CONN_DUCKDB_DEFAULT: duckdb:////opt/airflow/duckdb/telco_dw.duckdb
+      AIRFLOW_CONN_FS_DEFAULT: fs://
+      DUCKDB_PATH: /opt/airflow/duckdb/telco_dw.duckdb
+      DATA_DIR: /opt/airflow/data
+    volumes: &airflow-common-volumes
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./dbt:/opt/airflow/dbt:ro
+      - ./duckdb:/opt/airflow/duckdb
+      - ./data:/opt/airflow/data:ro
+    command:
+      - bash
+      - -c
+      - >-
+        airflow db migrate &&
+        (airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com || true)
+
+  airflow-webserver:
+    image: telco-airflow:latest
+    container_name: telco_airflow_webserver
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    environment: *airflow-common-env
+    volumes: *airflow-common-volumes
+    ports:
+      - "8080:8080"
+    command: webserver
+
+  airflow-scheduler:
+    image: telco-airflow:latest
+    container_name: telco_airflow_scheduler
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    environment: *airflow-common-env
+    volumes: *airflow-common-volumes
+    command: scheduler
+
 volumes:
   pgdata:
+  airflow_pgdata:

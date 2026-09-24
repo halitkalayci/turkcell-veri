@@ -32,5 +32,6 @@
 - Kod yorumları ve model açıklamaları Türkçe; tanımlayıcı isimler (tablo, kolon, değişken) İngilizce snake_case.
 - Analiz yaparken asla veri dosyalarını inceleyemezsin.
 - Herhangi bir konuda bilgi eksikliği varsa asla uydurma, eksikliği gidermeden planı onaylama eksikleri "vsCodeAskQuestions" yeteneğini kullanarak sor.
+- Eğer DB değişikliği varsa ve dosya kilit hatası alırsan DUR, dosya kilidini manual kullanıcıdan çözmesini iste ve devam dendiğinde işine kaldığın yerden devam et.
 ## Katman-özel kurallar
 `.github/instructions/` altındaki dosyalar ilgili yollarda otomatik uygulanır: `sql.instructions.md`, `dbt.instructions.md`, `airflow.instructions.md`.

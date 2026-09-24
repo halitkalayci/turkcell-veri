@@ -3,6 +3,6 @@ telco_dw:
   outputs:
     dev:
       type: duckdb
-      path: "{{ env_var('DUCKDB_PATH', 'duckdb/telco_dw.duckdb') }}"
+      path: "{{ env_var('DUCKDB_PATH', '../duckdb/telco_dw.duckdb') }}"
       schema: silver
       threads: 4

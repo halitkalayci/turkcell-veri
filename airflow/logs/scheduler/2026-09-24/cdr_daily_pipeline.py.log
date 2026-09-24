@@ -1,0 +1,117 @@
+[2026-09-24T12:14:10.349+0000] {processor.py:186} INFO - Started process (PID=179) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:14:10.350+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:14:10.352+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.352+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:14:10.433+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:14:10.626+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.625+0000] {override.py:1930} INFO - Created Permission View: can delete on DAG:cdr_daily_pipeline
+[2026-09-24T12:14:10.640+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.640+0000] {override.py:1930} INFO - Created Permission View: can read on DAG:cdr_daily_pipeline
+[2026-09-24T12:14:10.648+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.648+0000] {override.py:1930} INFO - Created Permission View: can edit on DAG:cdr_daily_pipeline
+[2026-09-24T12:14:10.657+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.657+0000] {override.py:1930} INFO - Created Permission View: can delete on DAG Run:cdr_daily_pipeline
+[2026-09-24T12:14:10.664+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.664+0000] {override.py:1930} INFO - Created Permission View: can read on DAG Run:cdr_daily_pipeline
+[2026-09-24T12:14:10.672+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.672+0000] {override.py:1930} INFO - Created Permission View: can create on DAG Run:cdr_daily_pipeline
+[2026-09-24T12:14:10.680+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.680+0000] {override.py:1930} INFO - Created Permission View: menu access on DAG Run:cdr_daily_pipeline
+[2026-09-24T12:14:10.681+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.680+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:14:10.694+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.694+0000] {dag.py:3262} INFO - Creating ORM DAG for cdr_daily_pipeline
+[2026-09-24T12:14:10.704+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:10.704+0000] {dag.py:4180} INFO - Setting next_dagrun for cdr_daily_pipeline to 2026-09-23 03:00:00+00:00, run_after=2026-09-24 03:00:00+00:00
+[2026-09-24T12:14:10.728+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.383 seconds
+[2026-09-24T12:14:40.930+0000] {processor.py:186} INFO - Started process (PID=351) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:14:40.931+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:14:40.933+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:40.933+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:14:40.993+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:14:41.022+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:14:41.022+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:14:41.066+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.142 seconds
+[2026-09-24T12:15:11.108+0000] {processor.py:186} INFO - Started process (PID=375) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:15:11.109+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:15:11.111+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:15:11.111+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:15:11.163+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:15:11.188+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:15:11.188+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:15:11.226+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.123 seconds
+[2026-09-24T12:15:41.293+0000] {processor.py:186} INFO - Started process (PID=399) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:15:41.294+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:15:41.296+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:15:41.296+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:15:41.346+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:15:41.374+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:15:41.374+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:15:41.415+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.126 seconds
+[2026-09-24T12:16:11.594+0000] {processor.py:186} INFO - Started process (PID=423) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:16:11.594+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:16:11.597+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:16:11.596+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:16:11.661+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:16:11.690+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:16:11.690+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:16:11.730+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.142 seconds
+[2026-09-24T12:16:41.793+0000] {processor.py:186} INFO - Started process (PID=447) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:16:41.794+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:16:41.795+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:16:41.795+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:16:41.851+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:16:41.879+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:16:41.879+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:16:41.920+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.132 seconds
+[2026-09-24T12:17:12.086+0000] {processor.py:186} INFO - Started process (PID=471) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:17:12.087+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:17:12.089+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:17:12.088+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:17:12.160+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:17:12.191+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:17:12.191+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:17:12.230+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.150 seconds
+[2026-09-24T12:17:42.289+0000] {processor.py:186} INFO - Started process (PID=501) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:17:42.290+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:17:42.292+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:17:42.292+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:17:42.343+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:17:42.370+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:17:42.369+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:17:42.410+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.126 seconds
+[2026-09-24T12:18:12.598+0000] {processor.py:186} INFO - Started process (PID=570) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:18:12.598+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:18:12.600+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:18:12.600+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:18:12.646+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:18:12.673+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:18:12.672+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:18:12.718+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.125 seconds
+[2026-09-24T12:18:51.773+0000] {processor.py:186} INFO - Started process (PID=231) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:18:51.775+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:18:51.776+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:18:51.776+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:18:51.837+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:18:51.872+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:18:51.872+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:18:51.912+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.144 seconds
+[2026-09-24T12:19:21.970+0000] {processor.py:186} INFO - Started process (PID=255) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:19:21.971+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:19:21.973+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:19:21.973+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:19:22.021+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:19:22.046+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:19:22.046+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:19:22.159+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.193 seconds
+[2026-09-24T12:19:52.285+0000] {processor.py:186} INFO - Started process (PID=279) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:19:52.286+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:19:52.288+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:19:52.287+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:19:52.333+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:19:52.357+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:19:52.357+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:19:52.394+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.113 seconds
+[2026-09-24T12:20:22.539+0000] {processor.py:186} INFO - Started process (PID=303) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:20:22.540+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:20:22.541+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:20:22.541+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:20:22.588+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:20:22.612+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:20:22.612+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:20:22.648+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.113 seconds
+[2026-09-24T12:20:52.763+0000] {processor.py:186} INFO - Started process (PID=327) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:20:52.764+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:20:52.765+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:20:52.765+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:20:52.808+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:20:52.831+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:20:52.831+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:20:52.867+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.109 seconds
+[2026-09-24T12:21:23.013+0000] {processor.py:186} INFO - Started process (PID=351) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:21:23.014+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:21:23.016+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:21:23.016+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:21:23.086+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:21:23.107+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:21:23.107+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:21:23.141+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.132 seconds
+[2026-09-24T12:21:53.233+0000] {processor.py:186} INFO - Started process (PID=375) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:21:53.234+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:21:53.236+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:21:53.236+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:21:53.279+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:21:53.305+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:21:53.305+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:21:53.344+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.115 seconds
+[2026-09-24T12:22:23.522+0000] {processor.py:186} INFO - Started process (PID=399) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:22:23.523+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:22:23.525+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:22:23.525+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:22:23.574+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:22:23.600+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:22:23.600+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:22:23.636+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.119 seconds
+[2026-09-24T12:22:53.713+0000] {processor.py:186} INFO - Started process (PID=507) to work on /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:22:53.714+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cdr_daily_pipeline.py for tasks to queue
+[2026-09-24T12:22:53.716+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:22:53.716+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:22:53.768+0000] {processor.py:925} INFO - DAG(s) 'cdr_daily_pipeline' retrieved from /opt/airflow/dags/cdr_daily_pipeline.py
+[2026-09-24T12:22:53.792+0000] {logging_mixin.py:190} INFO - [2026-09-24T12:22:53.792+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-09-24T12:22:53.830+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cdr_daily_pipeline.py took 0.121 seconds

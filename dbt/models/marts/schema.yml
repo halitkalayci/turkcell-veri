@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: dim_plan
+    description: Güncel tarife kayıtlarını içeren plan boyutu.
+    columns:
+      - name: plan_id
+        description: Tarifenin tekil kimliği.
+        tests:
+          - not_null
+          - unique
+      - name: plan_name
+        description: Tarifenin görünen adı.
+      - name: plan_family
+        description: Tarifenin ürün ailesi.
+      - name: monthly_fee
+        description: Aylık tarife ücreti (TRY).
+
+  - name: dim_date
+    description: 2026-01-01 ile 2027-12-31 arasındaki UTC takvim tarihleri boyutu.
+    columns:
+      - name: date_day
+        description: Takvim gününün tarihi.
+        tests:
+          - not_null
+          - unique
+      - name: iso_weekday
+        description: ISO-8601 haftanın günü; Pazartesi 1, Pazar 7.
+      - name: is_weekend
+        description: Günün Cumartesi veya Pazar olup olmadığı.
+      - name: year_month
+        description: YYYY-MM biçiminde yıl ve ay.
+
+  - name: dim_subscriber
+    description: Abonelerin tarife ve profil değişikliklerini geçerlilik aralıklarıyla izleyen boyut.
+    columns:
+      - name: subscriber_sk
+        description: Abone ve snapshot başlangıç zamanından üretilen tekil boyut anahtarı.
+        tests:
+          - not_null
+          - unique
+      - name: msisdn
+        description: E.164 biçimindeki abone telefon numarası.
+        tests:
+          - not_null
+      - name: plan_id
+        description: Abonenin ilgili dönemdeki tarife kimliği.
+      - name: status
+        description: Abonenin normalize edilmiş durumu.
+      - name: segment
+        description: Abonenin müşteri segmenti.
+      - name: city
+        description: Abonenin şehri.
+      - name: valid_from
+        description: Kaydın geçerlilik başlangıç zamanı (UTC).
+        tests:
+          - not_null
+      - name: valid_to
+        description: Kaydın geçerlilik bitiş zamanı (UTC); güncel kayıtta boştur.
+      - name: is_current
+        description: Kaydın güncel sürüm olduğunu gösterir.
