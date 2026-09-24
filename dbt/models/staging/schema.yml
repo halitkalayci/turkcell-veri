@@ -75,3 +75,19 @@ models:
         description: Country code associated with the event.
       - name: ingested_at
         description: UTC timestamp when the event was ingested into the warehouse.
+  - name: stg_campaigns
+    description: Staging model for campaign definitions. It trims campaign identifiers and text fields and keeps the latest dated record for each campaign identifier.
+    columns:
+      - name: campaign_id
+        description: Deduplicated source campaign identifier retained for traceability.
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: Trimmed campaign display name.
+      - name: start_date
+        description: Date on which the campaign starts.
+      - name: end_date
+        description: Date on which the campaign ends.
+      - name: target_segment
+        description: Trimmed customer segment targeted by the campaign.

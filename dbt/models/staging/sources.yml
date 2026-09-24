@@ -43,3 +43,16 @@ sources:
             description: Country code associated with the event.
           - name: ingested_at
             description: UTC timestamp when the event was ingested into the warehouse.
+      - name: campaigns
+        description: Raw campaign definitions with campaign identifiers, validity dates, and target segments.
+        columns:
+          - name: campaign_id
+            description: Source campaign identifier, which may be duplicated by the source feed.
+          - name: name
+            description: Campaign display name from the source system.
+          - name: start_date
+            description: Date on which the campaign starts.
+          - name: end_date
+            description: Date on which the campaign ends.
+          - name: target_segment
+            description: Customer segment targeted by the campaign.
